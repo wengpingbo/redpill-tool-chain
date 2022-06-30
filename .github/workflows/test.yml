@@ -123,6 +123,11 @@ jobs:
           echo '等待整理兼容性扩展~😀'
           ./redpill_tool_chain.sh add https://github.com/tossp/redpill-tool-chain/raw/master/extensions/redpill-boot-wait.json
 
+      - name: 添加扩展驱动[vmwgfx]
+        if: endsWith(matrix.version, '42661') && matrix.platform == 'ds918p'
+        run: |
+          ./redpill_tool_chain.sh add https://github.com/wengpingbo/redpill-vmwgfx/raw/master/rpext-index.json
+
       - name: 添加 Misc shell
         run: |
           ./redpill_tool_chain.sh add https://github.com/tossp/redpill-tool-chain/raw/master/extensions/redpill-misc.json
